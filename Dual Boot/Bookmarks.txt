@@ -1,0 +1,2 @@
+After Win10 install :
+https://askubuntu.com/questions/984303/no-wifi-adapter-found-dual-boot-windows-10-and-ubuntu-17-10
