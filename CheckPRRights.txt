@@ -1,2 +1,3 @@
 Protect Develop & master from being deleted
 https://stackoverflow.com/questions/52285410/protect-github-branches-from-being-deleted
+merge after new Rules on main & develop
