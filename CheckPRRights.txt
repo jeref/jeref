@@ -1,3 +1,4 @@
 Protect Develop & master from being deleted
 https://stackoverflow.com/questions/52285410/protect-github-branches-from-being-deleted
-merge after new Rules on main & develop
+- merge after new Rules on main & develop
+you have to bypass rukles to merge without pull requests but no more delete branch question
