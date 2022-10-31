@@ -3,3 +3,5 @@ https://stackoverflow.com/questions/52285410/protect-github-branches-from-being-
 - merge after new Rules on main & develop
 you have to bypass rukles to merge without pull requests but no more delete branch question
 - test merge from master to develop
+PR restriction to merge ==> no delete asking !
+- test 3 : delete develop rule (==> no rule)
