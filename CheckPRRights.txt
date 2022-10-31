@@ -5,3 +5,5 @@ you have to bypass rukles to merge without pull requests but no more delete bran
 - test merge from master to develop
 PR restriction to merge ==> no delete asking !
 - test 3 : delete develop rule (==> no rule)
+==> delete develop asked
+-test 4 : PR master --> develop
