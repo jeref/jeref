@@ -8,4 +8,5 @@ PR restriction to merge ==> no delete asking !
 ==> delete develop asked
 -test 4 : PR master --> develop
 ==> pas de demande de suppression dans ce sens
-- test 5 : new rule for develop (require PR, but no approvals)
+- test 5 : new rule for develop (require PR, but no approvals) OK
+- test 6 : rule develop "Require approvals" : should notchange anything
