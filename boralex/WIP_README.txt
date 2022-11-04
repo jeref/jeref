@@ -25,4 +25,16 @@ https://github.com/docker/build-push-action/issues/153
 crazy-max commented on 4 Oct 2020 • 
 Hi @ltamrazov
 That's because your cache is mixed with 2 images. You have to create another cache:
-...
+-	Use cahed layers from docker build push
+
+https://github.com/docker/build-push-action/issues/493
+-> https://github.com/orgs/community/discussions/25728
+==	Add in  “action”.yml = load: true
+
+04/11/2022
+https://github.com/Boralex-France/blx-vpp_backend/blob/feature_tests_unitaires/.github/workflows/docker-image-test.yml
+uses cache for docker-compose
+/!\ https://github.com/Boralex-France/blx-vpp_backend/actions/caches ==> cache limit
+NO master cache ==> probably erased by space demand.
+curl -H "Accept: application/vnd.github+json" -H "Authorization: Bearer <PERSONAL_TOKEN>"   https://github.com/api/v3/enterprises/Boralex-France/actions/cache/usage-policy
+Not Found
