@@ -38,3 +38,27 @@ uses cache for docker-compose
 NO master cache ==> probably erased by space demand.
 curl -H "Accept: application/vnd.github+json" -H "Authorization: Bearer <PERSONAL_TOKEN>"   https://github.com/api/v3/enterprises/Boralex-France/actions/cache/usage-policy
 Not Found
+
+https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment
+
+deploy front
+
+Sonar CE deployment :
+[
+    use with any branch plugin :
+https://hub.docker.com/r/mc1arke/sonarqube-with-community-branch-plugin
+]
+https://www.bitslovers.com/how-to-use-sonarqube-with-docker-and-maven/
+==> KO !
+==> https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/
+== use CLI SonarScanner
+1: $docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:community
+test sur blx-vpp_frontend
+==> branche
+create sonar-project.properties + sonar.yml
+jeref@LPT-FR-o5kT13Rc:~$ mkdir /home/jeref/actions-runner/_work/_temp/_github_home
+chmod -R 777 /home/jeref/jeref@LPT-FR-o5kT13Rc:~$ actions-runner/_wor
+create docker group and add to $USER
+create _temp/_github_home , _temp/_github_workflow , _temp/_runner_file_commands
+
+
