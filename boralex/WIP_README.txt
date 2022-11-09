@@ -61,4 +61,9 @@ chmod -R 777 /home/jeref/jeref@LPT-FR-o5kT13Rc:~$ actions-runner/_wor
 create docker group and add to $USER
 create _temp/_github_home , _temp/_github_workflow , _temp/_runner_file_commands
 
+run https://weihungchin.medium.com/how-to-set-up-sonarqube-in-windows-mac-and-linux-using-docker-3959c5a95eb2
+Asus-Jeref WSL Ubuntu 22.04
+docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:community
 
+jeref@Asus-Jeref:~/Dev/test_tmp$ docker run --network=host -e SONAR_HOST_URL='http://localhost:9000' -e SONAR_LOGIN="sqp_8787b53db5b296400cbd1845ec6184d0d108c9db" -v "$PWD:/usr/src" sonarsource/sonar-scanner-cli
+OKgit config
