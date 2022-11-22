@@ -53,6 +53,8 @@ https://www.bitslovers.com/how-to-use-sonarqube-with-docker-and-maven/
 ==> https://docs.sonarqube.org/latest/analysis/scan/sonarscanner/
 == use CLI SonarScanner
 1: $docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:community
+restart : docker restart c7d568bfab9bee89b3280f7a33ef4c72e3e67b3ff5592dc007c856dd0be86aa6
+
 test sur blx-vpp_frontend
 ==> branche
 create sonar-project.properties + sonar.yml
@@ -66,4 +68,42 @@ Asus-Jeref WSL Ubuntu 22.04
 docker run -d --name sonarqube -e SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true -p 9000:9000 sonarqube:community
 
 jeref@Asus-Jeref:~/Dev/test_tmp$ docker run --network=host -e SONAR_HOST_URL='http://localhost:9000' -e SONAR_LOGIN="sqp_8787b53db5b296400cbd1845ec6184d0d108c9db" -v "$PWD:/usr/src" sonarsource/sonar-scanner-cli
-OKgit config
+
+sur PC blx :
+2: docker run --network=host -e SONAR_HOST_URL='http://localhost:9000' -e SONAR_LOGIN="sqp_b6fe62c9e6efce5f013680c2bb8805d7364b6ab9" -v "$PWD:/usr/src" sonarsource/sonar-scanner-cli
+org.sonarqube:sonarqube-scanner
+
+14/11/2022
+lier la couverture de code de unittest avec Sonar
+https://pypi.org/project/unittest-xml-reporting/
+==> ouputs xml file to be analysed with sonar
+
+Probléme : ConnectException: Failed to connect to localhost/0:0:0:0:0:0:0:1:9000
+docker run --rm --network=host -e SONAR_HOST_URL="***" -e SONAR_LOGIN="***" -v "$PWD:/usr/src" sonarsource/sonar-scanner-cli
+
+
+16/11
+run unittest coverage
+17/11
+pass unittest output to next step
+VEN 18/11
+adapt unitest output to sonar requirements
+
+LUN 21/11
+xmlrunner not executed ==> no unit test report in Sonar
+MAR 22/11
+https://linuxhandbook.com/modifying-docker-image/
+Not applied but should ! (not testing the right image)
+
+VScode addon github action but unused !
+https://github.com/marketplace/actions/github-build-deploy-action
+
+test workflow syntax : https://dev.to/byteslash/how-to-test-your-github-actions-locally-3830
+==> install https://github.com/nektos/act
+
+run workflow triggered by workflow_run
+https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
+
+run releases by needs and if branch (ref_name) : 
+https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds
+https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif
