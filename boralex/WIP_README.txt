@@ -107,3 +107,16 @@ https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows
 run releases by needs and if branch (ref_name) : 
 https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds
 https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif
+
+MER 23/11
+Realease ok
+test failure
+https://community.sonarsource.com/t/error-in-check-quality-gate-status-github-action/69773/3
+<==> Adding /d:sonar.qualitygate.wait=true == check sonar quality gate status failed sonarqube from github
+
+JEU 24/11
+deploy OK
+toDo : build same Dokerfile, squash commits
+démo : voir déroulé
+cookBook : en cours
+next : secrets, ansible, alertes/dashboard
