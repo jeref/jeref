@@ -120,3 +120,30 @@ toDo : build same Dokerfile, squash commits
 démo : voir déroulé
 cookBook : en cours
 next : secrets, ansible, alertes/dashboard
+
+Deployments to different environnement :
+environnement Secrets and workflow_call (https://docs.github.com/en/enterprise-cloud@latest/actions/using-workflows/reusing-workflows) !
+https://blog.gitguardian.com/github-actions-security-cheat-sheet/
+with:
+  path: 'production/'
+  environment: 'production'
+# ./.github/workflows/deploy_reusable.yml
+workflow_call:
+  inputs:
+    environment:
+      type: string
+-------------
+jobs:
+ deploy:
+ environment: ${{ inputs.environment }}
+
+ MAR 29/11
+ https://supports.uptime-formation.fr/06-ansible/cours4/
+ 
+ Ansible repo cleaner :
+ https://rtyley.github.io/bfg-repo-cleaner/
+ alternative to git-filter-branch
+
+VEN 02/12
+https://adamj.eu/tech/2022/03/25/how-to-squash-and-rebase-a-git-branch/
++ test auto versioning
