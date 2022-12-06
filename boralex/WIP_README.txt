@@ -143,7 +143,15 @@ jobs:
  Ansible repo cleaner :
  https://rtyley.github.io/bfg-repo-cleaner/
  alternative to git-filter-branch
+<==> suppression de gros fichiers
 
 VEN 02/12
 https://adamj.eu/tech/2022/03/25/how-to-squash-and-rebase-a-git-branch/
 + test auto versioning
+
+LUN 05/12
+check test_ci1_
+test GitGardian + envisager Yelp detect-secrets
+
+MAR 06/12
+finaliser MEP Secrets DB logins
