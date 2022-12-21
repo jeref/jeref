@@ -155,3 +155,80 @@ test GitGardian + envisager Yelp detect-secrets
 
 MAR 06/12
 finaliser MEP Secrets DB logins
+logins ==
+Docker_password
+
+use of act with podman : https://github.com/nektos/act/issues/303
+MER 07/12
+toujours pas de récupération de la dernière image
+<==> use docker-compose down --rmi all
+https://www.baeldung.com/ops/docker-compose-latest-image
+
+Documentation CI/CD
+https://boralex.sharepoint.com/:w:/r/sites/A2I_FR/_layouts/15/Doc.aspx?sourcedoc=%7BAB0915AB-1F52-48BA-9F02-993951048E65%7D&file=Documentation_CI-CD.docx&action=default&mobileredirect=true
+
+MER 07/12
+Documentation CI/CD
+hit merge test_ci2 (develop) avec test_ci1 
+JEU 08/12
+on test_ci1 :
+>git checkout -b test_ci2 
+>git rebase -i develop (f ou s pour suppression des commits non désirés)
+
+https://claroty-statamic-assets.nyc3.digitaloceanspaces.com/resource-downloads/2021_q1_global_splunk_integration_brief.pdf
+
+LUN 12/12
+Sonar not showing all unit tests
+- https://stackoverflow.com/questions/26870606/how-to-get-python-unit-test-results-in-sonarqube
+==> ancien bug 2015 ! Sonar 4.5
+- https://stackoverflow.com/questions/32715266/sonar-xunit-file-is-not-parsed-by-sonar-runner
+==> sonar.python.xunit.skipDetails=false change rien !
+
+Ansible
+https://roelofjanelsinga.com/articles/ansible-easy-safe-ssh-deployments-from-github/
+==> Pas utile
+
+https://serverfault.com/questions/241588/how-to-automate-ssh-login-with-password
+$ sudo apt-get install sshpass
+$ sshpass -p your_password ssh user@hostname
+==> connexion with passwork allowed !
+
+
+https://serverfault.com/questions/285800/how-to-disable-ssh-login-with-password-for-some-users
+Match User user1,user2,user3,user4
+    PasswordAuthentication no
+==> Match User ansible
+    PasswordAuthentication no
+dans /etc/ssh/sshd_config.d/ansible.conf
+sudo systemctl restart ssh && sudo systemctl restart sshd
+ssh ansible@10.140.242.100 -o PubkeyAuthentication=no ==>KO
+ssh 'ext-jeremie.foricheu@boralex.kingsey'@10.140.242.100 -o PubkeyAuthentication=no ==> asks Pass & OK ==> ansible diff !
+mais sshpass -p <pass> ssh ansible@10.140.242.100 ==> Pass !
+Semble ne pas être possible de supprimer complètement l'auth via password comme ça, il faudrait essayer en désactivant pour tous les utilisateurs et aussi UsePAM ! 
+
+MAR 13/12
+exécution du déploiement via ansible
+
+https://learn.microsoft.com/en-us/azure/developer/ansible/configure-in-docker-container?tabs=azure-cli
+==> spécifique Azure
+https://duffney.io/containers-for-ansible-development/#create-a-dockerfile
+==> centos7
+https://geektechstuff.com/2020/02/10/ansible-in-a-docker-container/
+==> https://hub.docker.com/r/philm/ansible_playbook ==> ansible 2.2.2 (old)
+
+https://duffney.io/containers-for-ansible-development/#create-a-dockerfile ==> vault
+
+
+https://github.com/marketplace/actions/run-your-ansible-playbook-in-a-docker-container
+==> uses private key !
+
+pour se connecter à ansible depuis energy.markets :
+ssh -i ~/.ssh/ansible ansible@10.140.242.100
+
+docker run -it --rm --volume "$(pwd)":/ansible --entrypoint bash -w /ansible ansible
+ajouter le partage des clefs ssh :
+ -v ~/.ssh/ansible:/root/.ssh/id_rsa -v ~/.ssh/ansible.pub:/root/.ssh/id_rsa.pub
+
+MER 21/12
+Suite de mise en place d'Ansible (depuis 1 semaine !)
+Semble avoir fonctionnée.
