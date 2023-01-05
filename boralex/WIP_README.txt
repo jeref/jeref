@@ -251,9 +251,14 @@ LUN MAR MER 02 03 04 /01
 - Optimisation de l'utilisation des variables
 - limitation des copies ansible
 - création de sauvegardes images DockerHub
+- test d'un pseudo déploiement master sur feature_ci_scandockerhub
 
 JEU 05/01
 Nettoyage des images DockerHub
+- lister toutes les images ==> nécessite une pull boralex/blx-vpp_frontend -a
+- supprimer les images distantes : nécessite l'utilisation du wget ou curl avec TOKEN 
 
-
+https://stackoverflow.com/questions/44209644/how-do-i-delete-a-docker-image-from-docker-hub-via-command-line
+HUB_TOKEN=$(curl -s -H "Content-Type: application/json" -X POST -d "{\"username\": \"$HUB_USERNAME\", \"password\": \"$HUB_PASSWORD\"}" https://hub.docker.com/v2/users/login/ | jq -r .token)
+curl -i -X DELETE   -H "Accept: application/json"   -H "Authorization: JWT $HUB_TOKEN"   https://hub.docker.com/v2/repositories/boralex/blx-vpp_frontend/tags/feature_ci_scandockerhub-23.01.04-17.46.41
 
