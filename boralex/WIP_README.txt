@@ -232,3 +232,28 @@ ajouter le partage des clefs ssh :
 MER 21/12
 Suite de mise en place d'Ansible (depuis 1 semaine !)
 Semble avoir fonctionnée.
+
+Slide schéma global
+creuser des points (code review) : 
+- Docker
+- github
+- Ansible
+- Workflow ?
+- tests unitaires / fonctionnels
+
+toDo : ansible_rsa-encypted ne doit pas se retrouver sur le host esclave ! (Work dir Volume !)
+
+JEU 22/12
+optimisation de la récupération des secrets
+TEST_SECRET sur private_tests:
+
+LUN MAR MER 02 03 04 /01
+- Optimisation de l'utilisation des variables
+- limitation des copies ansible
+- création de sauvegardes images DockerHub
+
+JEU 05/01
+Nettoyage des images DockerHub
+
+
+
