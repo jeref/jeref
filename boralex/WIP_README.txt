@@ -261,4 +261,31 @@ Nettoyage des images DockerHub
 https://stackoverflow.com/questions/44209644/how-do-i-delete-a-docker-image-from-docker-hub-via-command-line
 HUB_TOKEN=$(curl -s -H "Content-Type: application/json" -X POST -d "{\"username\": \"$HUB_USERNAME\", \"password\": \"$HUB_PASSWORD\"}" https://hub.docker.com/v2/users/login/ | jq -r .token)
 curl -i -X DELETE   -H "Accept: application/json"   -H "Authorization: JWT $HUB_TOKEN"   https://hub.docker.com/v2/repositories/boralex/blx-vpp_frontend/tags/feature_ci_scandockerhub-23.01.04-17.46.41
+UNAME=boralex
+GET list of tags :
+curl -s -H "Authorization: JWT ${TOKEN}" https://hub.docker.com/v2/repositories/${UNAME}/blx-vpp_frontend/tags/?page_size=100 | jq -r '.results|.[]|.name'
+scripts from https://gist.github.com/kizbitz/e59f95f7557b4bbb8bf2
+##
+UNAME=boralex
+TOKEN=$(curl -s -H "Content-Type: application/json" -X POST -d "{\"username\": \"$HUB_USERNAME\", \"password\": \"$HUB_PASSWORD\"}" https://hub.docker.com/v2/users/login/ | jq -r .token)
+curl -s -H "Authorization: JWT ${TOKEN}" https://hub.docker.com/v2/repositories/${UNAME}/blx-vpp_frontend/tags/?page_size=100 | jq -r '.results|.[]|.name'
+==>
+eature_ci_scandockerhub-23.01.04-18.05.18
+feature_ci_scandockerhub
+feature_ci_cd
+test_ci3
+test_ci2
+master
+test_ci1
+develop
+test_secrets
+test_merge
 
+DOCKER_PASSWORD
+DOCKER_USERNAME
+TOKEN=$(curl -s -H "Content-Type: application/json" -X POST -d "{\"username\": \"${DOCKER_USERNAME}\", \"password\": \"${DOCKER_PASSWORD}\"}" https://hub.docker.com/v2/users/login/ | jq -r .token)
+curl -s -H "Authorization: JWT ${TOKEN}" https://hub.docker.com/v2/repositories/${UNAME}/blx-vpp_frontend/tags/?page_size=100 | jq -r '.results|.[]|.name'
+
+use of https://github.com/dhet/scan-docker-tags-action ==> failing in private DH repo : https://github.com/dhet/scan-docker-tags-action/issues/7
+
+WIP : https://gist.github.com/kizbitz/e59f95f7557b4bbb8bf2
