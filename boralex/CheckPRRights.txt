@@ -10,3 +10,7 @@ PR restriction to merge ==> no delete asking !
 ==> pas de demande de suppression dans ce sens
 - test 5 : new rule for develop (require PR, but no approvals) OK
 - test 6 : rule develop "Require approvals" : should notchange anything
+
+https://github.com/orgs/community/discussions/22037
+use of {branch1,branch2} pattern unavailable
+https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#allow-force-pushes
