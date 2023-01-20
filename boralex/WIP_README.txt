@@ -231,7 +231,7 @@ ajouter le partage des clefs ssh :
 
 MER 21/12
 Suite de mise en place d'Ansible (depuis 1 semaine !)
-Semble avoir fonctionnée.
+Semble avoir fonctionnée.q
 
 Slide schéma global
 creuser des points (code review) : 
@@ -289,3 +289,74 @@ curl -s -H "Authorization: JWT ${TOKEN}" https://hub.docker.com/v2/repositories/
 use of https://github.com/dhet/scan-docker-tags-action ==> failing in private DH repo : https://github.com/dhet/scan-docker-tags-action/issues/7
 
 WIP : https://gist.github.com/kizbitz/e59f95f7557b4bbb8bf2
+
+VEN 05/01
+Nettoyage des images master et develop : garder la dernière sauvegarde des dernières semaine, mois, années
+
+LUN 09/01
+Procedure de déploiement d'une image versionnée + préparation du point avec Simon
+
+MAR 10/01
+Mise en place environnement production
+préparation PR front 
+
+docker save -o .tar boralex/..front..:master
+
+MER 11/01
+préparation démo
+netoyage des branches front
+
+JEU 12/01
+ajout des secrets METEOLOGICA_*
+Préparation de mise en prod : test des variables ?
+optimisation du déploiement ansible back (limiter les copies)
+nettoyage des branche back
+mise en prod front
+correction TU back
+
+Questions : Power Factor
+
+VEN 13/01
+correction create SNAPSHOT front on master
+check cron trigger
+import login dans back !
+
+toDo : template deployment (yml github workflow)
+
+
+Péparation entretien Alexandre Debargis <adebargis@microsoft.com>
+==>
+Questions MS github
+- politique : open-source vs Proprietary
+- Dev : visual vs code friendly
+- learning : MS vs multi-cloud
+- cost curve : 
+github : free to expensive on enterprise (Higher curve)
+Azure : minimal cost to managed cost (slower curve but complex step down)
+
+Ajout de la variable de back.env au secrets
+
+logins à renommer
+back.env : nouvelle variable
+
+prefect_login extra logger : nouvelle variable PREFECT__LOGGING__EXTRA_LOGGERS
+
+LUN 16/01
+création d'un deploy manuel pour le back (fait par Olivier pour Front)
+
+MAR 17/01
+merged PR
+ftp to meteologica : passive mode not allowed ==> incompatibilité docker-compose
+
+MER 18/01
+documentation sur le versionning d'application (tagging)
+procédure et commandes
+JEU 19/01
+réunion avec Simon pour valider la mise en prod.
+Mise en oeuvre du tagging automatique
+VEN 20/01
+Mise en place du tagging automatique sur boralex/blx-vpp_frontend
+ci/tag-rebuild_BRANCH.sh triggered by PR on .github\workflows\PR-tagging.yml
+
+LUN 23/01
+Next step = HEX
