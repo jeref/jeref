@@ -357,6 +357,68 @@ Mise en oeuvre du tagging automatique
 VEN 20/01
 Mise en place du tagging automatique sur boralex/blx-vpp_frontend
 ci/tag-rebuild_BRANCH.sh triggered by PR on .github\workflows\PR-tagging.yml
+Documentation :
+https://medium.com/@arbitrarybytes/comparing-git-branching-strategies-f28b237ee922
+GitHub Flow : deployment to production before merging to main
+<> TBD   : AFTER ==> toutes les PR doivent être déployées en production ! ==> délais de mise en service !
+MEP tagging on develop blx_vpp-backend vu avec Simon
+En cours : 
+          - Test des variables du conteneur
+"
+docker exec $(docker ps | grep vpp_backend_client | awk '{ print $1 }') env | grep -wFf VAR_LIST
+1: créer la liste des variables à tester :
+cat ci/check_env_* | grep "\${#" | grep -v "\${#CHECK}" | sed "s/[^#]*#\([^}]*\).*/\1/" | sort -u >ci/check_env_LIST.txt
+2: liste des variables trouvées dans le conteneur :
+DK_NAME=vpp_backend_client
+# Erreur :
+# docker exec $(docker ps | grep ${DK_NAME} | awk '{ print $1 }') env | grep -wFf ci/check_env_LIST.txt | sed "s/=.*//" >ci/${DK_NAME}_check_env_OK.txt
+# utilisation du fichier list pour 
+# cat ci/check_env_LIST.txt | grep -v ci/${DK_NAME}_check_env_OK.txt
+# **
+# utilisation du fichier texte pour vérifier que les variables existent avec au moins un caractère :
+cat  ci/check_env_${DK_NAME}.txt | grep -v "#" | grep -v "$(docker exec $(docker ps | grep ${DK_NAME} | awk '{ print $1 }') env | sed "s/=..*//")"
+CHECK=$(cat  ci/check_env_${DK_NAME}.txt | grep -v "#" | grep -v "$(docker exec $(docker ps | grep ${DK_NAME} | awk '{ print $1 }') env | sed "s/=..*//")" | wc -l)
+if [ $CHECK -gt 0 ]; then echo "#ERROR !!" && exit 1; fi
+
+"
+          - suppression des branches locales absentes de remote :
+"
+git branch -r | sed "s#^\([^/]*/\)*##" > REMOTE_branch
+git branch | sed "s/^[\b *]*//" >list_branch_local
+git branch -D $(cat list_branch_local | grep -vwFf REMOTE_branch )
+"
 
 LUN 23/01
 Next step = HEX
+MAR 24/01
+- validation de la PR de Simon pour futur merge master 
+- sauvegardes master tar + tag v1.0.1 (toDo)
+- Documentation git (https://boralex.sharepoint.com/sites/A2I_FR/Documents%20partages/1%20-%20R%C3%A9pertoire%20de%20travail/DevOps/documentation_ci-cd/DevOps%20-%20versionning%20-%20VPP.docx?web=1)
+               + docker  (https://boralex.sharepoint.com/sites/A2I_FR/Documents%20partages/1%20-%20R%C3%A9pertoire%20de%20travail/DevOps/documentation_ci-cd/Documentation_CI-CD.docx?web=1)
+docker login : toDo https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+nettoyage de toutes les images docker inutilisées
+docker image prune -a
+mais il faudrait ajouter des filtres
+ docker image list | grep -v 'blx-vpp\|debian\|ubuntu\|moby/buildkit\|continuumio/miniconda3\|prefecthq\|postgres\|sonar\|graphql'
+
+MER 25/01
+WIP HEX
+JEU 26/01
+correction cronned deploy workflow VPP backend
+HEX, nettoyage
+https://gist.github.com/heiswayi/350e2afda8cece810c0f6116dadbe651
+
+LUN 30/01/2023
+install act on test machine : https://github.com/nektos/act
+Manual download :  https://github.com/nektos/act/releases/download/v0.2.40/act_Linux_x86_64.tar.gz
+scp act_Linux_x86_64.tar.gz 'ext-jeremie.foricheu@boralex.kingsey'@10.140.242.100:.
+mv act_Linux_x86_64.tar.gz bin/ && cd bin
+tar -xvf act_Linux_x86_64.tar.gz 
+chmod aog+x act
+USAGE (in WD == checkout dir) : ~/bin/act -l
+
+MAR 31/01
+toDo : add date to deploy.log (why is missing ?) where cronned deploy
+add HEX credentials
+check_env_docker.sh
