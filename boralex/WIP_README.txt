@@ -422,3 +422,22 @@ MAR 31/01
 toDo : add date to deploy.log (why is missing ?) where cronned deploy
 add HEX credentials
 check_env_docker.sh
+
+MER --> VEN : HEX CI/CD
+OK CI/CD HEX
+
+LUN 06/02
+- finaliser doc Install Docker HEX (.md : transforamtion markdown)
+- Supervision HEX
+Rstudio :
+apt install r-cran-bookdown
+https://computingforgeeks.com/how-to-install-r-and-rstudio-on-ubuntu-debian-mint/
+==> wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-2022.02.2-485-amd64.deb
+sudo apt update
+sudo apt -y upgrade
+
+sudo apt -y install r-base
+sudo apt install -f ./rstudio-2022.02.2-485-amd64.deb
+
+pandoc -t markdown -f docx INPUT.docx -o output.md
+
