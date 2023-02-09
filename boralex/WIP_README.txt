@@ -437,7 +437,29 @@ sudo apt update
 sudo apt -y upgrade
 
 sudo apt -y install r-base
-sudo apt install -f ./rstudio-2022.02.2-485-amd64.deb
+sudo apt install -f ./rstudio-2022.02.2-485-amd64.deb ==> erreur needs libssl1.X
+https://dailies.rstudio.com/rstudio/spotted-wakerobin/desktop/jammy/2022-07-3-583/
 
 pandoc -t markdown -f docx INPUT.docx -o output.md
+
+MAR 07/02
+problème de connexion github
+ssh-add -l returns “The agent has no identities”
+vérification de la clef ssh : https://stackoverflow.com/questions/26505980/github-permission-denied-ssh-add-agent-has-no-identities
+==> ssh-add ~/.ssh/id_rsa && ssh-add -l -E sha256 ==> check SSH key is right ==> OK clef SSH 
+https://stackoverflow.com/questions/17659206/git-push-results-in-authentication-failed
+git remote -v : OK mais :
+git remote set-url origin git@github.com:USERNAME/REPONAME.git
+git remote set-url origin git@github.com:Boralex-France/blx-hex_backend.git
+git push -u ==> "fatal: La branche courante feature_supervision n'a pas de branche amont."
+git fetch
+git push --set-upstream origin feature_supervision
+OK
+
+Plantage back ==> il faut faire un redémarrage du back cronné (gitHub)
+
+docker system prune -a
+toDo : docker system prune -a --volumes
+
+remise à 0 du répertoire postgres
 
