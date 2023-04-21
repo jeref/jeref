@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: test
         shell: bash
-        run: echo "test" && sleep 5 && exit 1
+        run: echo "test ok" exit 0
 
         # workflow is not reusable as it is missing a `on.workflow_call` trigger !
   # workflow_run_if_ok:
