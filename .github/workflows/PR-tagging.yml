@@ -8,7 +8,7 @@ on:
 
 jobs:
   settag_if_merged:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch'
 
     name: set new Tag for branch
     runs-on: ubuntu-latest
@@ -21,3 +21,4 @@ jobs:
     - name: settag
       shell: bash
       run: /bin/bash ci/tag-rebuild_BRANCH.sh ${{ github.base_ref }}
+  
