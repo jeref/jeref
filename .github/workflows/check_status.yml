@@ -3,7 +3,8 @@ name: check status
 # Only trigger, when the build workflow succeeded
 on:
   workflow_dispatch:
-
+  workflow_call:
+    
   workflow_run:
     workflows: ["auto tagging branch"]
     types:
