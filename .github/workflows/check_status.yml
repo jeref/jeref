@@ -13,7 +13,7 @@ jobs:
 
   notify_run:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_run'
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success'
     steps:
       - name: Dump GitHub context
         id: github_context_step
@@ -26,14 +26,15 @@ jobs:
         run: echo '${{ toJSON(runner) }}'
       - name: Dump strategy context
         run: echo '${{ toJSON(strategy) }}'
-      - name: Dump matrix context
-        run: echo '${{ toJSON(matrix) }}'
+      # do not exists !
+      # - name: Dump matrix context
+      #   run: echo '${{ toJSON(matrix) }}'
         
       - name: one sample step
         run: |
           echo "one sample step"
-          echo "github.event.workflow_run = ${{ toJSON(github.event.workflow_run) }}"
-          echo "github.action_status is ${{ github.action_status }}"
+          echo "github.event.workflow_run.conclusion is  = ${{ github.event.workflow_run.conclusion }}"
+          # do not exists ! echo "github.action_status is ${{ github.action_status }}"
           date
 
   notify_success:
