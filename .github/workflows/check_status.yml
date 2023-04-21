@@ -15,11 +15,25 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'workflow_run'
     steps:
+      - name: Dump GitHub context
+        id: github_context_step
+        run: echo '${{ toJSON(github) }}'
+      - name: Dump job context
+        run: echo '${{ toJSON(job) }}'
+      - name: Dump steps context
+        run: echo '${{ toJSON(steps) }}'
+      - name: Dump runner context
+        run: echo '${{ toJSON(runner) }}'
+      - name: Dump strategy context
+        run: echo '${{ toJSON(strategy) }}'
+      - name: Dump matrix context
+        run: echo '${{ toJSON(matrix) }}'
+        
       - name: one sample step
         run: |
           echo "one sample step"
-          echo "github.event.workflow_run = ${{ github.event.workflow_run }}"
-          echo "state is ${{ github.event.state }}"
+          echo "github.event.workflow_run = ${{ toJSON(github.event.workflow_run) }}"
+          echo "github.action_status is ${{ github.action_status }}"
           date
 
   notify_success:
