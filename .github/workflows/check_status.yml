@@ -18,4 +18,6 @@ jobs:
       - name: one sample step
         run: |
           date
+          sleep 200
           echo "one sample step"
+          date
