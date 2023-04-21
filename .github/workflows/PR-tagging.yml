@@ -22,3 +22,4 @@ jobs:
 
   call-workflow-2-in-local-repo:
     uses: ./.github/workflows/check_status.yml
+    needs: settag_if_merged
