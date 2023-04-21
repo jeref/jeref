@@ -463,3 +463,76 @@ toDo : docker system prune -a --volumes
 
 remise à 0 du répertoire postgres
 
+toDo : Ansible
+
+15/02/2023
+Démo hex
+toDo : 
+- supervision (revue xlsx avec Hind)
+- Suppression des credentials :
+https://geekflare.com/github-credentials-scanner/
+- env de production
+
+
+28/02
+new google env for prod (le traitement google n'avait pas été désactivé)
+
+01/03
+scrapping : OK si mot de passe eex OK ==> en attente retour Hind & Philippe
+reste correction du tagging : doit prendre la dernière version des tags fusionnés (indépendants du nom suffixé)
+use Spark DataFrame
+https://phoenixnap.com/kb/spark-create-dataframe
+
+==> Install PySpark on Debian 11
+https://phoenixnap.com/kb/install-spark-on-ubuntu
+# annulé :
+#wget https://downloads.apache.org/spark/spark-3.3.2/pyspark-3.3.2.tar.gz
+#tar xvf pyspark-*
+
+  https://spark.apache.org/downloads.html
+  pip install pyspark
+  Successfully installed py4j-0.10.9.5 pyspark-3.3.2
+PYSPARK_PYTHON=python3.9
+SPARK_HOME=~/.local/lib/python3.9/site-packages/pyspark
+PATH=$PATH:$SPARK_HOME
+KO
+https://stackoverflow.com/questions/46286436/running-pyspark-after-pip-install-pyspark
+
+-- https://phoenixnap.com/kb/install-spark-on-ubuntu
+-- https://phoenixnap.com/kb/spark-create-dataframe
+
+https://github.com/kootenpv/gittyleaks
+pip3 install gittyleaks
+gittyleaks -f
+
+02 & 03/03 : 
+Debug MTM (manque virgule dans Settlement Price de Futures_products_2023.xlsx
+ ) + test parallele prod / dev
+
+06/03
+OT Tags données "calcul de dispo" 
+Réunion PI status tags alignment : Wish, Etiene Begin, Francois & Florent
+==> Question de l'utilisation de python
+
+07/03
+Webinar Databricks : confirms Python 2&3 are good fit for scalability
+first commits : 
+https://stackoverflow.com/questions/60277545/what-is-the-difference-between-abfss-and-wasbs-in-azure-storage
+WASB : https://learn.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage#access-files-from-the-cluster
+ABFS : https://learn.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2#create-hdinsight-clusters-using-data-lake-storage-gen2
+/!\ Billing for HDInsight clusters is prorated per minute, whether you use them or not. Be sure to delete your cluster after you finish using it. See how to delete an HDInsight cluster.
+
+08/03 :
+** databricks-cli :
+https://stackoverflow.com/questions/71427005/view-databricks-notebooks-outside-databricks#:~:text=Databricks%20natively%20stores%20it's%20notebook,of%20notebooks%20and%20supporting%20files.
+Databricks Azure onBorading Serie :
+https://www.databricks.com/explore/azure-training-series-refresh/watch-azure-training-series-conclusion
+- Databricks Fundamentals accreditation :
+https://www.databricks.com/learn/training/lakehouse-fundamentals-accreditation
+
+20/04 : 
+get data from Vestas
+
+21/04
+new JIRA tickets
+VPP trigger new job to test containers
