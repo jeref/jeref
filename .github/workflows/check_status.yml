@@ -11,12 +11,16 @@ on:
 
 jobs:
 
-  notify:
+  notify_run:
     runs-on: ubuntu-latest
-    if: github.event_name == 'workflow_run' && github.event.workflow_run == 'success'
+    if: github.event_name == 'workflow_run'
     steps:
       - name: one sample step
         run: |
-          echo "state is ${{ github.event.state }} "
           echo "one sample step"
+          echo "github.event.workflow_run = ${{ github.event.workflow_run }}"
+          echo "state is ${{ github.event.state }}"
           date
+  notify_success:
+    runs-on: ubuntu-latest
+    if: github.event.workflow_run == 'success'
