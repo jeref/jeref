@@ -7,8 +7,19 @@ on:
       - closed
 
 jobs:
+
+  fail_if_dispatched:
+    if: github.event_name == 'workflow_dispatch'
+
+    name: fail_test
+    runs-on: ubuntu-latest
+    steps:
+      - name: test
+        shell: bash
+        run: echo "test" && sleep 5 && exit 1
+
   settag_if_merged:
-    if: github.event.pull_request.merged == true || github.event_name == 'workflow_dispatch'
+    if: github.event.pull_request.merged == true
 
     name: set new Tag for branch
     runs-on: ubuntu-latest
@@ -21,4 +32,4 @@ jobs:
     - name: settag
       shell: bash
       run: /bin/bash ci/tag-rebuild_BRANCH.sh ${{ github.base_ref }}
-  
+
