@@ -21,4 +21,4 @@ jobs:
       run: /bin/bash ci/tag-rebuild_BRANCH.sh ${{ github.base_ref }}
 
   call-workflow-2-in-local-repo:
-    uses: ./.github/workflows/workflow-2.yml
+    uses: ./.github/workflows/check_status.yml
