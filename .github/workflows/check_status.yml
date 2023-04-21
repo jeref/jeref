@@ -17,4 +17,5 @@ jobs:
     steps:
       - name: one sample step
         run: |
+          date
           echo "one sample step"
