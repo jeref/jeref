@@ -536,3 +536,8 @@ get data from Vestas
 21/04
 new JIRA tickets
 VPP trigger new job to test containers
+
+28/04
+- list all repos : https://boralex.sharepoint.com/:w:/r/sites/A2I_FR/Documents%20partages/1%20-%20R%C3%A9pertoire%20de%20travail/DevOps/notes_de_travail/gitHubRepos-overview.docx?d=wb99977ea07164f879c5e211145a162fe&csf=1&web=1&e=b2f3iH
+- create blx.datalake.collect repo in Boralex-inc
+- WIP : az create Blob with az CLI
