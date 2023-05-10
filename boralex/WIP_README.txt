@@ -541,3 +541,35 @@ VPP trigger new job to test containers
 - list all repos : https://boralex.sharepoint.com/:w:/r/sites/A2I_FR/Documents%20partages/1%20-%20R%C3%A9pertoire%20de%20travail/DevOps/notes_de_travail/gitHubRepos-overview.docx?d=wb99977ea07164f879c5e211145a162fe&csf=1&web=1&e=b2f3iH
 - create blx.datalake.collect repo in Boralex-inc
 - WIP : az create Blob with az CLI
+
+02/05/2023
+Pb de redémarrage de VPP le Dimanche matin
+==> tigger VPP-state on each deployment.
+
+03/05
+Discussion problématiques winphone avec Berenger
+
+04/05
+Maintenance DevOps (https://tdo.atlassian.net/browse/STDO-2158) : création de 2 US et déplacement des 2 tickets
+- déploiement auto Sonar (https://tdo.atlassian.net/browse/STDO-2384)
+- restore base postgres (https://tdo.atlassian.net/browse/STDO-2386)
+..
+
+run_status_check sur tdo_supervision
+
+05/05
+VPP debug 
+Revue Backlogs : aller-retours
+PM : réu amélioration HEX : création du repo sur Boralex-France (Yasser, Josselin)
+- installation Docker Desktop + démarrage de l'appli en local
+- restore base postgres + documentation CI/CD
+
+09/05
+VPP : finaliser le retour de check supervision sur VPP
+Digital - Plateforme data : Blueprint
+
+10/05
+TDO_check for VPP : get output of check status by reading file
+Next : trigger by VPP repo
+
+Next : data Blueprint
