@@ -6,6 +6,10 @@ jobs:
     call-workflow-tdo-check:
         runs-on: ubuntu-latest
         steps:
+        - name: start
+          id: start_step
+          run: echo "date is $(date)"
+
         - name: run check status
           id: github_context_step
           uses: ./.github/workflows/check-status.yml@main
