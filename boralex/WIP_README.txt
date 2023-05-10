@@ -570,6 +570,9 @@ Digital - Plateforme data : Blueprint
 
 10/05
 TDO_check for VPP : get output of check status by reading file
-Next : trigger by VPP repo
+** trigger by VPP repo
+https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository
+
+
 
 Next : data Blueprint
