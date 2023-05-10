@@ -8,4 +8,4 @@ jobs:
         steps:
         - name: run check status
           id: github_context_step
-          uses: .github/workflows/check-status.yml@v1
+          uses: ./.github/workflows/check-status.yml@v1
