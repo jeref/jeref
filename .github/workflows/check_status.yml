@@ -8,6 +8,8 @@ on:
     workflows: ["auto tagging branch"]
     types:
       - completed
+      
+  workflow_call:
 
 jobs:
 
