@@ -573,6 +573,20 @@ TDO_check for VPP : get output of check status by reading file
 ** trigger by VPP repo
 https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository
 
+11/05
+workflow_call in front to test
 
+12/05
+VPP call supervision : OK merge develop
 
-Next : data Blueprint
+15/05
+Voir avec Simon s'il comprend l'utilité du check
+Voir avec Paul si OK pour départ le Jeudi 28
+Vu pour connectivité SQL SCADA : voir avec Cédric Castelnot si autre utilisateur disponible.
+Next : data Blueprint + check récupération SQL Nordex
+
+16/05
+- réunion TI : valider la solution puis faire une réunion TDO/TI
+- supervision tdo : ajouter le déclenchement manuel
+- schedule récupération Nordex + documentation et préparation automatisation
+

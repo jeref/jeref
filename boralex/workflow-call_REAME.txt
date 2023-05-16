@@ -1,0 +1,25 @@
+workflow_call_README.txt
+JFO 10/05/2023
+to reuse this repo workflow from other repo :
+------------------------
+1- Allowing access to components in a private repository
+https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository
+==> access for VPP check status
+2- add in reusable workflow .yml: on:  workflow_call: 
+https://docs.github.com/fr/actions/using-workflows/reusing-workflows
+
+3- https://docs.github.com/fr/actions/using-workflows/reusing-workflows#calling-a-reusable-workflow
+Appel d'un workflow réutilisable
+jobs:
+  call-workflow-1-in-local-repo:
+    uses: octo-org/this-repo/.github/workflows/workflow-1.yml@172239021f7ba04fe7327647b213799853a9eb89
+  call-workflow-2-in-local-repo:
+    uses: ./.github/workflows/workflow-2.yml
+  call-workflow-in-another-repo:
+    uses: octo-org/another-repo/.github/workflows/workflow.yml@v1
+    
+call-workflow-2-in-local-repo:
+    uses: ./.github/workflows/workflow-2.yml
+    ==> uses commit hash of the caller
+  call-workflow-in-another-repo: have to call a hash or tag...
+    uses: octo-org/another-repo/.github/workflows/workflow.yml@v1
