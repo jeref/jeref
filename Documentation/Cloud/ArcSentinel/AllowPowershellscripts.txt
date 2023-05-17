@@ -1,0 +1,3 @@
+Set-ExecutionPolicy restricted   or   unrestricted
+
+gbl.his.arc.azur  

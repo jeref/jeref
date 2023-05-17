@@ -1,0 +1,3 @@
+https://learn.microsoft.com/fr-fr/certifications/resources/az-900-sample-questions#question--15-sentence-completion-1
+Q8 : VPN de site à site alors qu'on parle d'un appareil... (VPN)
++ Q15
