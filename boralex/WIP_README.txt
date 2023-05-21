@@ -590,3 +590,7 @@ Next : data Blueprint + check récupération SQL Nordex
 - supervision tdo : ajouter le déclenchement manuel
 - schedule récupération Nordex + documentation et préparation automatisation
 
+17/05
+- VPP manual triggering supervision
+
+18/05 : WE
